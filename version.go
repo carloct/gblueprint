@@ -1,9 +1,9 @@
 package main
 
-// Versions ...
-type Versions struct {
-	Test string `json:"test"`
+// Health ...
+type Health struct {
+	Version string `json:"version"`
 }
 
 // CurrentVersion ...
-var CurrentVersion = Versions{"test"}
+var CurrentVersion = Health{"0.1.1"}

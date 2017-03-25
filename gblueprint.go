@@ -13,9 +13,6 @@ func main() {
 
 	r.Use(middleware.Logger)
 
-	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("welcome"))
-	})
 	r.Get("/health", healthCheck)
 	r.Post("/gif", createGif)
 
