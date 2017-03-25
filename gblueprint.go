@@ -1,25 +1,24 @@
 package main
 
 import (
-	"fmt"
-	"os"
+	"net/http"
+
+	"github.com/pressly/chi"
+	"github.com/pressly/chi/middleware"
 )
 
 func main() {
 
-	opts := ServerOptions{
-		Port:    8080,
-		Address: "localhost",
-	}
+	r := chi.NewRouter()
 
-	err := Server(opts)
-	if err != nil {
-		exitWithError("cannot start the server: %s", err)
-	}
+	r.Use(middleware.Logger)
 
-}
+	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte("welcome"))
+	})
+	r.Get("/health", healthCheck)
+	r.Post("/gif", createGif)
 
-func exitWithError(format string, args ...interface{}) {
-	fmt.Fprintf(os.Stderr, format+"\n", args)
-	os.Exit(1)
+	http.ListenAndServe(":8080", r)
+
 }
