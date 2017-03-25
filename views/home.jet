@@ -1,0 +1,7 @@
+{{ extends "layouts/layout.jet" }}
+
+{{ block body() }}
+    <div class="col">
+        Main content
+    </div>
+{{ end }}

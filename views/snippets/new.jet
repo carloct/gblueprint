@@ -1,0 +1,18 @@
+{{ extends "layouts/layout.jet" }}
+
+{{ block body() }}
+    <div class="col">
+        <form action="/snippets" method="post" id="newSnippet">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input class="form-control" type="text" name="title" id="title" />
+            <div>
+            <div class="form-group">
+                <label for="snippet">Snippet</label>
+                <textarea class="form-control" name="snippet" id="snippet"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+{{ end }}
