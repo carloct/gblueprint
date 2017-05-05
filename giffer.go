@@ -14,7 +14,6 @@ func main() {
 	r.Use(middleware.Logger)
 
 	r.Get("/health", healthCheck)
-	r.Post("/images", createGif)
 	r.Post("/video", createGifFromVideo)
 
 	http.ListenAndServe(":8080", r)
